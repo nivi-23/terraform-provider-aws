@@ -156,6 +156,7 @@ type ResourceDatum struct {
 	FileName          string
 	Generator         string
 	ImportStateID     string
+	ImportStateIDFunc string
 	ImportIgnore      []string
 	Implementation    implementation
 	Serialize         bool
@@ -333,6 +334,9 @@ func (v *visitor) processFuncDecl(funcDecl *ast.FuncDecl) {
 				}
 				if attr, ok := args.Keyword["importStateId"]; ok {
 					d.ImportStateID = attr
+				}
+				if attr, ok := args.Keyword["importStateIdFunc"]; ok {
+					d.ImportStateIDFunc = attr
 				}
 				if attr, ok := args.Keyword["name"]; ok {
 					d.Name = strings.ReplaceAll(attr, " ", "")
