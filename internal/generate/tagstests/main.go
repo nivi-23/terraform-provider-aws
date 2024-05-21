@@ -168,6 +168,7 @@ type ResourceDatum struct {
 	GenerateConfig    bool
 	InitCodeBlocks    []codeBlock
 	AdditionalTfVars  map[string]string
+	CheckDestroyNoop  bool
 }
 
 type goImport struct {
@@ -302,6 +303,19 @@ func (v *visitor) processFuncDecl(funcDecl *ast.FuncDecl) {
 
 			case "Testing":
 				args := common.ParseArgs(m[3])
+				if attr, ok := args.Keyword["checkDestroyNoop"]; ok {
+					if b, err := strconv.ParseBool(attr); err != nil {
+						v.errs = append(v.errs, fmt.Errorf("invalid checkDestroyNoop value: %q at %s. Should be boolean value.", attr, fmt.Sprintf("%s.%s", v.packageName, v.functionName)))
+						continue
+					} else {
+						d.CheckDestroyNoop = b
+						d.GoImports = append(d.GoImports,
+							goImport{
+								Path: "github.com/hashicorp/terraform-provider-aws/internal/acctest",
+							},
+						)
+					}
+				}
 				if attr, ok := args.Keyword["existsType"]; ok {
 					if typeName, importSpec, err := parseIdentifierSpec(attr); err != nil {
 						v.errs = append(v.errs, fmt.Errorf("%s: %w", attr, fmt.Sprintf("%s.%s", v.packageName, v.functionName), err))
