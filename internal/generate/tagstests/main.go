@@ -277,7 +277,8 @@ func (v *visitor) processFuncDecl(funcDecl *ast.FuncDecl) {
 				}
 				d.TypeName = args.Positional[0]
 				if attr, ok := args.Keyword["name"]; ok {
-					d.Name = strings.ReplaceAll(attr, " ", "")
+					attr = strings.ReplaceAll(attr, " ", "")
+					d.Name = strings.ReplaceAll(attr, "-", "")
 				}
 
 			case "SDKResource":
@@ -289,7 +290,8 @@ func (v *visitor) processFuncDecl(funcDecl *ast.FuncDecl) {
 				}
 				d.TypeName = args.Positional[0]
 				if attr, ok := args.Keyword["name"]; ok {
-					d.Name = strings.ReplaceAll(attr, " ", "")
+					attr = strings.ReplaceAll(attr, " ", "")
+					d.Name = strings.ReplaceAll(attr, "-", "")
 				}
 
 			case "SDKDataSource":
