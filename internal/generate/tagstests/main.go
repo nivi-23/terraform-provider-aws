@@ -81,6 +81,7 @@ func main() {
 		sourceName := resource.FileName
 		ext := filepath.Ext(sourceName)
 		sourceName = strings.TrimSuffix(sourceName, ext)
+		sourceName = strings.TrimSuffix(sourceName, "_")
 
 		resource.ProviderNameUpper = serviceRecord.ProviderNameUpper()
 		resource.ProviderPackage = servicePackage
