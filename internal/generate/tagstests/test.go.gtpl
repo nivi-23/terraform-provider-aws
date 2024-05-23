@@ -132,6 +132,7 @@ func {{ template "testname" . }}_tags(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -145,6 +146,7 @@ func {{ template "testname" . }}_tags(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -180,6 +182,7 @@ func {{ template "testname" . }}_tags(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -194,6 +197,7 @@ func {{ template "testname" . }}_tags(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -228,6 +232,7 @@ func {{ template "testname" . }}_tags(t *testing.T) {
 				SkipFunc: testAcc{{ .ProviderNameUpper }}{{ .Name }}_removingTagNotSupported(t),
 				{{ end }}
 			},
+			{{ if not .NoImport -}}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -244,6 +249,7 @@ func {{ template "testname" . }}_tags(t *testing.T) {
 				SkipFunc: testAcc{{ .ProviderNameUpper }}{{ .Name }}_removingTagNotSupported(t),
 				{{ end }}
 			},
+			{{- end }}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -275,6 +281,7 @@ func {{ template "testname" . }}_tags(t *testing.T) {
 				SkipFunc: testAcc{{ .ProviderNameUpper }}{{ .Name }}_removingTagNotSupported(t),
 				{{ end }}
 			},
+			{{ if not .NoImport -}}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -289,6 +296,7 @@ func {{ template "testname" . }}_tags(t *testing.T) {
 				SkipFunc: testAcc{{ .ProviderNameUpper }}{{ .Name }}_removingTagNotSupported(t),
 				{{ end }}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -332,6 +340,7 @@ func {{ template "testname" . }}_tags_null(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -345,6 +354,7 @@ func {{ template "testname" . }}_tags_null(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -426,6 +436,7 @@ func {{ template "testname" . }}_tags_AddOnUpdate(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -439,6 +450,7 @@ func {{ template "testname" . }}_tags_AddOnUpdate(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -488,6 +500,7 @@ func {{ template "testname" . }}_tags_EmptyTag_OnCreate(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -501,6 +514,7 @@ func {{ template "testname" . }}_tags_EmptyTag_OnCreate(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -529,6 +543,7 @@ func {{ template "testname" . }}_tags_EmptyTag_OnCreate(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -540,6 +555,7 @@ func {{ template "testname" . }}_tags_EmptyTag_OnCreate(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -624,6 +640,7 @@ func {{ template "testname" . }}_tags_EmptyTag_OnUpdate_Add(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -638,6 +655,7 @@ func {{ template "testname" . }}_tags_EmptyTag_OnUpdate_Add(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -669,6 +687,7 @@ func {{ template "testname" . }}_tags_EmptyTag_OnUpdate_Add(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -682,6 +701,7 @@ func {{ template "testname" . }}_tags_EmptyTag_OnUpdate_Add(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -762,6 +782,7 @@ func {{ template "testname" . }}_tags_EmptyTag_OnUpdate_Replace(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ConfigDirectory: config.StaticDirectory("testdata/{{ .Name }}/tags/"),
 				ConfigVariables: config.Variables{ {{ if .Generator }}
@@ -775,6 +796,7 @@ func {{ template "testname" . }}_tags_EmptyTag_OnUpdate_Replace(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -817,6 +839,7 @@ func {{ template "testname" . }}_tags_DefaultTags_providerOnly(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -832,6 +855,7 @@ func {{ template "testname" . }}_tags_DefaultTags_providerOnly(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -872,6 +896,7 @@ func {{ template "testname" . }}_tags_DefaultTags_providerOnly(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -888,6 +913,7 @@ func {{ template "testname" . }}_tags_DefaultTags_providerOnly(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -928,6 +954,7 @@ func {{ template "testname" . }}_tags_DefaultTags_providerOnly(t *testing.T) {
 				SkipFunc: testAcc{{ .ProviderNameUpper }}{{ .Name }}_removingTagNotSupported(t),
 				{{ end }}
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -946,6 +973,7 @@ func {{ template "testname" . }}_tags_DefaultTags_providerOnly(t *testing.T) {
 				SkipFunc: testAcc{{ .ProviderNameUpper }}{{ .Name }}_removingTagNotSupported(t),
 				{{ end }}
 			},
+			{{- end }}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags/"),
@@ -979,6 +1007,7 @@ func {{ template "testname" . }}_tags_DefaultTags_providerOnly(t *testing.T) {
 				SkipFunc: testAcc{{ .ProviderNameUpper }}{{ .Name }}_removingTagNotSupported(t),
 				{{ end }}
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags/"),
@@ -994,6 +1023,7 @@ func {{ template "testname" . }}_tags_DefaultTags_providerOnly(t *testing.T) {
 				SkipFunc: testAcc{{ .ProviderNameUpper }}{{ .Name }}_removingTagNotSupported(t),
 				{{ end }}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -1044,6 +1074,7 @@ func {{ template "testname" . }}_tags_DefaultTags_nonOverlapping(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -1061,6 +1092,7 @@ func {{ template "testname" . }}_tags_DefaultTags_nonOverlapping(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -1106,6 +1138,7 @@ func {{ template "testname" . }}_tags_DefaultTags_nonOverlapping(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -1124,6 +1157,7 @@ func {{ template "testname" . }}_tags_DefaultTags_nonOverlapping(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags/"),
@@ -1157,6 +1191,7 @@ func {{ template "testname" . }}_tags_DefaultTags_nonOverlapping(t *testing.T) {
 				SkipFunc: testAcc{{ .ProviderNameUpper }}{{ .Name }}_removingTagNotSupported(t),
 				{{ end }}
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags/"),
@@ -1172,6 +1207,7 @@ func {{ template "testname" . }}_tags_DefaultTags_nonOverlapping(t *testing.T) {
 				SkipFunc: testAcc{{ .ProviderNameUpper }}{{ .Name }}_removingTagNotSupported(t),
 				{{ end }}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -1220,6 +1256,7 @@ func {{ template "testname" . }}_tags_DefaultTags_overlapping(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -1237,6 +1274,7 @@ func {{ template "testname" . }}_tags_DefaultTags_overlapping(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -1281,6 +1319,7 @@ func {{ template "testname" . }}_tags_DefaultTags_overlapping(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -1300,6 +1339,7 @@ func {{ template "testname" . }}_tags_DefaultTags_overlapping(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -1338,6 +1378,7 @@ func {{ template "testname" . }}_tags_DefaultTags_overlapping(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -1355,6 +1396,7 @@ func {{ template "testname" . }}_tags_DefaultTags_overlapping(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -1437,6 +1479,7 @@ func {{ template "testname" . }}_tags_DefaultTags_updateToProviderOnly(t *testin
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -1452,6 +1495,7 @@ func {{ template "testname" . }}_tags_DefaultTags_updateToProviderOnly(t *testin
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -1529,6 +1573,7 @@ func {{ template "testname" . }}_tags_DefaultTags_updateToResourceOnly(t *testin
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags/"),
@@ -1543,6 +1588,7 @@ func {{ template "testname" . }}_tags_DefaultTags_updateToResourceOnly(t *testin
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -1599,6 +1645,7 @@ func {{ template "testname" . }}_tags_DefaultTags_emptyResourceTag(t *testing.T)
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -1616,6 +1663,7 @@ func {{ template "testname" . }}_tags_DefaultTags_emptyResourceTag(t *testing.T)
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -1666,6 +1714,7 @@ func {{ template "testname" . }}_tags_DefaultTags_emptyProviderOnlyTag(t *testin
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -1681,6 +1730,7 @@ func {{ template "testname" . }}_tags_DefaultTags_emptyProviderOnlyTag(t *testin
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -1728,6 +1778,7 @@ func {{ template "testname" . }}_tags_DefaultTags_nullOverlappingResourceTag(t *
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -1745,6 +1796,7 @@ func {{ template "testname" . }}_tags_DefaultTags_nullOverlappingResourceTag(t *
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -1792,6 +1844,7 @@ func {{ template "testname" . }}_tags_DefaultTags_nullNonOverlappingResourceTag(
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tags_defaults/"),
@@ -1809,6 +1862,7 @@ func {{ template "testname" . }}_tags_DefaultTags_nullNonOverlappingResourceTag(
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -1850,6 +1904,7 @@ func {{ template "testname" . }}_tags_ComputedTag_OnCreate(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tagsComputed1/"),
@@ -1862,6 +1917,7 @@ func {{ template "testname" . }}_tags_ComputedTag_OnCreate(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -1940,6 +1996,7 @@ func {{ template "testname" . }}_tags_ComputedTag_OnUpdate_Add(t *testing.T) {
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tagsComputed2/"),
@@ -1954,6 +2011,7 @@ func {{ template "testname" . }}_tags_ComputedTag_OnUpdate_Add(t *testing.T) {
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 		},
 	})
 }
@@ -2027,6 +2085,7 @@ func {{ template "testname" . }}_tags_ComputedTag_OnUpdate_Replace(t *testing.T)
 					},
 				},
 			},
+			{{ if not .NoImport -}}
 			{
 				ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
 				ConfigDirectory:          config.StaticDirectory("testdata/{{ .Name }}/tagsComputed1/"),
@@ -2039,6 +2098,7 @@ func {{ template "testname" . }}_tags_ComputedTag_OnUpdate_Replace(t *testing.T)
 				},
 				{{- template "ImportBody" . -}}
 			},
+			{{- end }}
 		},
 	})
 }
