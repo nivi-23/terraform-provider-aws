@@ -148,26 +148,27 @@ const (
 )
 
 type ResourceDatum struct {
-	ProviderPackage   string
-	ProviderNameUpper string
-	Name              string
-	TypeName          string
-	ExistsTypeName    string
-	FileName          string
-	Generator         string
-	NoImport          bool
-	ImportStateID     string
-	ImportStateIDFunc string
-	ImportIgnore      []string
-	Implementation    implementation
-	Serialize         bool
-	PreCheck          bool
-	SkipEmptyTags     bool // TODO: Remove when we have a strategy for resources that have a minimum tag value length of 1
-	NoRemoveTags      bool
-	GoImports         []goImport
-	GenerateConfig    bool
-	InitCodeBlocks    []codeBlock
-	AdditionalTfVars  map[string][]string
+	ProviderPackage    string
+	ProviderNameUpper  string
+	Name               string
+	TypeName           string
+	ExistsTypeName     string
+	FileName           string
+	Generator          string
+	NoImport           bool
+	ImportStateID      string
+	ImportStateIDFunc  string
+	ImportIgnore       []string
+	Implementation     implementation
+	Serialize          bool
+	PreCheck           bool
+	SkipEmptyTags      bool // TODO: Remove when we have a strategy for resources that have a minimum tag value length of 1
+	NoRemoveTags       bool
+	GoImports          []goImport
+	GenerateConfig     bool
+	InitCodeBlocks     []codeBlock
+	AdditionalTfVars   map[string][]string
+	TagsUpdateForceNew bool
 }
 
 type goImport struct {
@@ -380,6 +381,15 @@ func (v *visitor) processFuncDecl(funcDecl *ast.FuncDecl) {
 					default:
 						v.errs = append(v.errs, fmt.Errorf("invalid tagsTest value: %q at %s.", attr, fmt.Sprintf("%s.%s", v.packageName, v.functionName)))
 						continue
+					}
+				}
+				// TODO: should probably be a parameter on @Tags
+				if attr, ok := args.Keyword["tagsUpdateForceNew"]; ok {
+					if b, err := strconv.ParseBool(attr); err != nil {
+						v.errs = append(v.errs, fmt.Errorf("invalid tagsUpdateForceNew value: %q at %s. Should be boolean value.", attr, fmt.Sprintf("%s.%s", v.packageName, v.functionName)))
+						continue
+					} else {
+						d.TagsUpdateForceNew = b
 					}
 				}
 				if attr, ok := args.Keyword["skipEmptyTags"]; ok {
